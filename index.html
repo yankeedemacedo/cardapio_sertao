@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Taste of Sertão - Authentic Northeastern Brazilian Flavors">
+  <title>Taste of Sertão</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #243a25;
+      --bg-alt: #2d452e;
+      --text: #f2e7d3;
+      --text-muted: #e8e0c8;
+      --accent: #b35a3c;
+      --accent-alt: #7a8f4c;
+      --divider: rgba(242, 231, 211, 0.15);
+      --card-bg: #2d452e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 4rem;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--divider);
+      margin-bottom: 3rem;
+    }
+
+    .icon {
+      font-size: 3.5rem;
+      line-height: 1;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 300;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 500;
+      font-size: 1.75rem;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      letter-spacing: -0.01em;
+    }
+
+    /* Menu Items */
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--divider);
+      transition: background-color 0.2s ease;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    .menu-item:hover {
+      background-color: var(--bg-alt);
+      border-radius: 4px;
+      margin: 0 -0.5rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .item-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 500;
+      font-size: 1.15rem;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .item-desc {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 300;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .item-price {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--accent);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--divider);
+      margin-top: 1rem;
+    }
+
+    footer p {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 300;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .credits {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 1rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .container {
+        padding: 2.5rem 1rem 3rem;
+      }
+
+      header {
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .icon {
+        font-size: 3rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .menu-item {
+        padding: 0.875rem 0;
+      }
+
+      .item-name {
+        font-size: 1.05rem;
+      }
+
+      .item-price {
+        font-size: 1rem;
+      }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+      }
+    }
+
+    /* Focus visible for accessibility */
+    *:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <span class="icon" aria-hidden="true">🌵</span>
+      <h1>Taste of Sertão</h1>
+      <p class="subtitle">Authentic Northeastern Brazilian Flavors</p>
+    </header>
+
+    <section aria-labelledby="appetizers">
+      <h2 class="section-title" id="appetizers">Appetizers</h2>
+
+      <article class="menu-item">
+        <div class="item-info">
+          <h3 class="item-name">Fried Mandioca</h3>
+          <p class="item-desc">Fried mandioca with cheese.</p>
+        </div>
+        <span class="item-price">$5.00</span>
+      </article>
+
+      <article class="menu-item">
+        <div class="item-info">
+          <h3 class="item-name">Meat Pastel</h3>
+          <p class="item-desc">Fried pastry with meat.</p>
+        </div>
+        <span class="item-price">$4.00</span>
+      </article>
+
+      <article class="menu-item">
+        <div class="item-info">
+          <h3 class="item-name">Tapioca Dices</h3>
+          <p class="item-desc">Fried tapioca with cheese and pepper jelly.</p>
+        </div>
+        <span class="item-price">$6.00</span>
+      </article>
+    </section>
+
+    <section aria-labelledby="mains">
+      <h2 class="section-title" id="mains">Main Courses</h2>
+
+      <article class="menu-item">
+        <div class="item-info">
+          <h3 class="item-name">Baião de Dois</h3>
+          <p class="item-desc">Rice, beans, cheese, and beef.</p>
+        </div>
+        <span class="item-price">$18.00</span>
+      </article>
+
+      <article class="menu-item">
+        <div class="item-info">
+          <h3 class="item-name">Fried Fish</h3>
+          <p class="item-desc">Fried fish with rice and salad.</p>
+        </div>
+        <span class="item-price">$16.00</span>
+      </article>
+    </section>
+
+    <section aria-labelledby="desserts">
+      <h2 class="section-title" id="desserts">Desserts</h2>
+
+      <article class="menu-item">
+        <div class="item-info">
+          <h3 class="item-name">Bolo de Rolo</h3>
+          <p class="item-desc">Roll cake with guava sweet.</p>
+        </div>
+        <span class="item-price">$5.00</span>
+      </article>
+
+      <article class="menu-item">
+        <div class="item-info">
+          <h3 class="item-name">Cocada</h3>
+          <p class="item-desc">Coconut sweet treat.</p>
+        </div>
+        <span class="item-price">$4.00</span>
+      </article>
+
+      <article class="menu-item">
+        <div class="item-info">
+          <h3 class="item-name">Guava Pudding</h3>
+          <p class="item-desc">Sweet guava pudding.</p>
+        </div>
+        <span class="item-price">$5.00</span>
+      </article>
+    </section>
+
+    <section aria-labelledby="drinks">
+      <h2 class="section-title" id="drinks">Drinks</h2>
+
+      <article class="menu-item">
+        <div class="item-info">
+          <h3 class="item-name">Cajá Juice</h3>
+          <p class="item-desc">Fresh cajá juice.</p>
+        </div>
+        <span class="item-price">$4.00</span>
+      </article>
+
+      <article class="menu-item">
+        <div class="item-info">
+          <h3 class="item-name">Cajuína</h3>
+          <p class="item-desc">Traditional soda.</p>
+        </div>
+        <span class="item-price">$3.00</span>
+      </article>
+
+      <article class="menu-item">
+        <div class="item-info">
+          <h3 class="item-name">Soda</h3>
+          <p class="item-desc">Coke or Guaraná.</p>
+        </div>
+        <span class="item-price">$2.00</span>
+      </article>
+
+      <article class="menu-item">
+        <div class="item-info">
+          <h3 class="item-name">Cachaça</h3>
+          <p class="item-desc">Traditional Brazilian spirit.</p>
+        </div>
+        <span class="item-price">$5.00</span>
+      </article>
+
+      <article class="menu-item">
+        <div class="item-info">
+          <h3 class="item-name">Water</h3>
+          <p class="item-desc">Still water.</p>
+        </div>
+        <span class="item-price">$1.00</span>
+      </article>
+    </section>
+
+    <footer>
+      <p>Taste of Sertão • Crafted with culture & tradition</p>
+      <p class="credits">Developed by Yankee de Macedo & Luiza Jost</p>
+    </footer>
+  </main>
+</body>
+</html>
